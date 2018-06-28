@@ -28,9 +28,9 @@ public class DatabaseConfig {
     @Bean(name = "dataSource")
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl(environment.getProperty("db.local.url"));
-        dataSource.setUsername(environment.getProperty("db.local.user"));
-        dataSource.setPassword(environment.getProperty("db.local.password"));
+        dataSource.setUrl(environment.getProperty("db.heroku.url"));
+        dataSource.setUsername(environment.getProperty("db.heroku.user"));
+        dataSource.setPassword(environment.getProperty("db.heroku.password"));
         dataSource.setDriverClassName(environment.getProperty("db.driver"));
 
         return dataSource;

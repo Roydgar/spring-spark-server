@@ -41,8 +41,13 @@ public class SpringSparkServerApplication {
 
 		get(URLPaths.ROOT, context.getBean(IndexPageController.class).handle, new VelocityTemplateEngine());
 		get(URLPaths.CLIENT, (request, response) ->
-						context.getBean(ClientService.class).login("client", "0000").get(),
+						context.getBean(ClientService.class).findClientByLogin("client").get(),
 				new JsonTransformer());
+
+		get("/news", (request, response) -> context.getBean(ClientService.class)
+        .findClientByLogin("client").get().getNews());
+        get("/comments", (request, response) -> context.getBean(ClientService.class)
+                .findClientByLogin("client").get().getComments());
 	}
 
 	public static int getAssignedPort() {
