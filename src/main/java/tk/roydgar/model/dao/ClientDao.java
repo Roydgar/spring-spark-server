@@ -8,10 +8,9 @@ import java.util.Optional;
 
 public interface ClientDao extends GenericDao<Client> {
 
+    void create(Client client);
     Optional<Client> login(String login, String password);
-
     Optional<Client> findByLogin(String login);
-
     boolean clientExists(String login);
 
 }

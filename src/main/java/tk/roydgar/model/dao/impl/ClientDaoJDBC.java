@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import tk.roydgar.model.dao.ClientDao;
 import tk.roydgar.model.dao.util.constants.client.ClientQueries;
-import tk.roydgar.model.dao.util.constants.mapper.ClientMapper;
+import tk.roydgar.model.dao.util.mapper.ClientMapper;
 import tk.roydgar.model.entity.Client;
 
 import java.util.List;

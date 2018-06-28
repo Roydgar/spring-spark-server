@@ -1,4 +1,4 @@
-package tk.roydgar.model.dao.util.constants.mapper;
+package tk.roydgar.model.dao.util.mapper;
 
 import org.springframework.jdbc.core.RowMapper;
 import tk.roydgar.model.dao.util.constants.client.ClientColumnNames;

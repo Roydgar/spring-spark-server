@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 public class ClientDaoJDBCTest{
 
     @Autowired
-    ClientDao clientDao;
+    private ClientDao clientDao;
 
     private static JdbcTemplate jdbcTemplate;
 
@@ -48,15 +48,12 @@ public class ClientDaoJDBCTest{
 
         jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.update(ClientQueries.CREATE_TABLE);
-        jdbcTemplate.execute(GeneralQueries.DISABLE_FOREIGN_KEY_CHECK);
-        jdbcTemplate.update(ClientQueries.TRUNCATE_TABLE);
 
     }
 
     @AfterClass
     public static void dropTable() {
         jdbcTemplate.update(ClientQueries.DROP_TABLE);
-        jdbcTemplate.execute(GeneralQueries.ENABLE_FOREIGN_KEY_CHECK);
     }
 
 

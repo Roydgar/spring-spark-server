@@ -1,8 +1,10 @@
 package tk.roydgar.model.entity;
 
 import lombok.*;
+import tk.roydgar.model.entity.workTime.WorkTime;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,5 +23,6 @@ public class Client {
     private String email;
     private LocalDateTime registrationDate;
     private String address;
+    List<WorkTime> workDays;
 
 }
