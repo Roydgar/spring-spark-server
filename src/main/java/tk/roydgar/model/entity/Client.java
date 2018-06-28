@@ -16,13 +16,16 @@ import java.util.List;
 public class Client {
 
     private transient Integer id;
-    private String login;
+    private transient String login;
     private transient String password;
     private String name;
     private String phone;
     private String email;
     private LocalDateTime registrationDate;
     private String address;
-    List<WorkTime> workDays;
+
+    private List<WorkTime> workDays;
+    private List<Comment> comments;
+    private List<News> news;
 
 }

@@ -1,11 +1,11 @@
-package tk.roydgar.model.dao.util.constants.workTime;
+package tk.roydgar.model.dao.util.constants.comment;
 
 import tk.roydgar.util.constants.FileNames;
 
 import java.util.ResourceBundle;
 
-public interface WorkTimeQueries {
-    ResourceBundle bundle = ResourceBundle.getBundle(FileNames.WORK_TIME_QUERIES);
+public interface CommentQueries {
+    ResourceBundle bundle = ResourceBundle.getBundle(FileNames.COMMENT_QUERIES);
 
     String CREATE        = bundle.getString("create");
     String FIND_BY_ID    = bundle.getString("findById");
@@ -13,7 +13,5 @@ public interface WorkTimeQueries {
     String UPDATE        = bundle.getString("update");
     String DELETE        = bundle.getString("delete");
     String FIND_BY_CLIENT_ID = bundle.getString("findByClientId");
-
-    String CREATE_TABLE  = bundle.getString("create.table");
 
 }
