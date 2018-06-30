@@ -52,23 +52,20 @@ CREATE TABLE IF NOT EXISTS `work_day` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `mydb`.`comment`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `comment` (
   `comment_id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(80) NOT NULL,
   `text` TEXT NOT NULL,
   `mark` TINYINT(5) NOT NULL,
+  `usefulness` INT NOT NULL DEFAULT 0,
   `client_client_id` INT NOT NULL,
   PRIMARY KEY (`comment_id`),
   INDEX `fk_comment_client1_idx` (`client_client_id` ASC),
   CONSTRAINT `fk_comment_client1`
-    FOREIGN KEY (`client_client_id`)
-    REFERENCES `client` (`client_id`)
+  FOREIGN KEY (`client_client_id`)
+  REFERENCES `client` (`client_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `news` (
   `news_id` INT NOT NULL AUTO_INCREMENT,

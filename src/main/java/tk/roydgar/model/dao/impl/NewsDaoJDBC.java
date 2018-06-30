@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import tk.roydgar.model.dao.util.NewsDao;
+import tk.roydgar.model.dao.NewsDao;
 import tk.roydgar.model.dao.util.constants.news.NewsQueries;
-import tk.roydgar.model.dao.util.constants.workTime.WorkTimeQueries;
 import tk.roydgar.model.dao.util.mapper.NewsMapper;
-import tk.roydgar.model.dao.util.mapper.WorkTimeMapper;
 import tk.roydgar.model.entity.News;
 
 import java.util.List;
@@ -25,7 +23,7 @@ public class NewsDaoJDBC implements NewsDao {
     }
 
     @Override
-    public List<News> findNByClientId(int clientId) {
+    public List<News> findByClientId(int clientId) {
         return jdbcTemplate.query(NewsQueries.FIND_BY_CLIENT_ID, new NewsMapper(), clientId);
     }
 

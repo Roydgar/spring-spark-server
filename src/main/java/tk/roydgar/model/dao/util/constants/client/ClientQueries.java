@@ -17,6 +17,7 @@ public interface ClientQueries {
     String UPDATE        = bundle.getString("update");
     String DELETE        = bundle.getString("delete");
     String FIND_BY_LOGIN = bundle.getString("findByLogin");
+    String FIND_BY_NAME  = bundle.getString("findByName");
 
     String CREATE_TABLE  = bundle.getString("create.table");
     String DROP_TABLE    = bundle.getString("drop.table");

@@ -8,13 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CommentMapper implements RowMapper<Comment> {
+
     @Override
     public Comment mapRow(ResultSet rs, int i) throws SQLException {
-        int id = rs.getInt(CommentColumnNames.ID);
-        String name = rs.getString(CommentColumnNames.NAME);
+        Integer id = rs.getInt(CommentColumnNames.ID);
         String text = rs.getString(CommentColumnNames.TEXT);
-        int mark    = rs.getInt(CommentColumnNames.MARK);
+        Integer mark    = rs.getInt(CommentColumnNames.MARK);
+        Integer usefulness = rs.getInt(CommentColumnNames.USEFULNESS);
 
-        return Comment.builder().id(id).name(name).text(text).mark(mark).build();
+        return Comment.builder().id(id).text(text).mark(mark).usefulness(usefulness).build();
     }
+
 }

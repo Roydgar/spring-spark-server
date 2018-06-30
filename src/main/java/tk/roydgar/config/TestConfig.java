@@ -33,7 +33,7 @@ public class TestConfig {
 
     @Bean(name = "testComment")
     public Comment testComment() {
-        return Comment.builder().name("Amazing service!").mark(5).text("Very good service.").build();
+        return Comment.builder().mark(5).text("Very good service.").usefulness(0).build();
     }
 
     @Bean(name = "testNews")

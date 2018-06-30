@@ -2,8 +2,7 @@ package tk.roydgar;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -11,10 +10,20 @@ import tk.roydgar.config.AppConfig;
 import tk.roydgar.config.DatabaseConfig;
 import tk.roydgar.config.TestConfig;
 import tk.roydgar.controller.IndexPageController;
-import tk.roydgar.model.dao.ClientDao;
+
+import tk.roydgar.controller.WebController;
+import tk.roydgar.model.entity.Client;
+import tk.roydgar.model.entity.Comment;
+import tk.roydgar.model.entity.News;
 import tk.roydgar.model.service.ClientService;
+import tk.roydgar.model.service.CommentService;
+import tk.roydgar.model.service.NewsService;
 import tk.roydgar.util.JsonTransformer;
 import tk.roydgar.util.constants.URLPaths;
+
+
+import java.util.List;
+import java.util.Optional;
 
 import static spark.Spark.*;
 import static spark.Spark.get;
@@ -39,18 +48,10 @@ public class SpringSparkServerApplication {
 			logger.error(e);
 		});
 
-		get(URLPaths.ROOT, context.getBean(IndexPageController.class).handle, new VelocityTemplateEngine());
-		get(URLPaths.CLIENT, (request, response) ->
-						context.getBean(ClientService.class).findClientByLogin("client").get(),
-				new JsonTransformer());
-
-		get("/news", (request, response) -> context.getBean(ClientService.class)
-        .findClientByLogin("client").get().getNews());
-        get("/comments", (request, response) -> context.getBean(ClientService.class)
-                .findClientByLogin("client").get().getComments());
+		context.getBean(WebController.class).setupRoutes(context);
 	}
 
-	public static int getAssignedPort() {
+	private static int getAssignedPort() {
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		if (processBuilder.environment().get("PORT") != null) {
 			return Integer.parseInt(processBuilder.environment().get("PORT"));

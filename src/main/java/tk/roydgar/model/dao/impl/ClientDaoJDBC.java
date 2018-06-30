@@ -45,6 +45,16 @@ public class ClientDaoJDBC implements ClientDao {
     }
 
     @Override
+    public Optional<Client> findByName(String name) {
+        try {
+            return Optional.of(jdbcTemplate.queryForObject(ClientQueries.FIND_BY_NAME,
+                    new ClientMapper(), name));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
+    }
+
+    @Override
     public boolean clientExists(String login) {
         try {
             jdbcTemplate.queryForObject(ClientQueries.FIND_BY_LOGIN, new ClientMapper(), login);

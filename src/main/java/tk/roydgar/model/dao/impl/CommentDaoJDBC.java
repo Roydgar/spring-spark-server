@@ -31,7 +31,13 @@ public class CommentDaoJDBC implements CommentDao{
 
     @Override
     public void create(Comment comment, int clientId) {
-        jdbcTemplate.update(CommentQueries.CREATE, comment.getName(), comment.getText(), comment.getMark(), clientId);
+        jdbcTemplate.update(CommentQueries.CREATE, comment.getText(), comment.getMark(),
+                comment.getUsefulness(), clientId);
+    }
+
+    @Override
+    public void updateUsefulness(int usefulness, int commendId) {
+        jdbcTemplate.update(CommentQueries.UPDATE_USEFULNESS, usefulness, commendId);
     }
 
     @Override
@@ -52,7 +58,7 @@ public class CommentDaoJDBC implements CommentDao{
     @Override
     public void update(Comment entity, int id) {
         jdbcTemplate.update(CommentQueries.UPDATE,
-                entity.getName(), entity.getText(), entity.getMark(), id);
+                 entity.getText(), entity.getMark(), entity.getUsefulness(), id);
 
     }
 

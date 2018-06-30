@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 public class News {
 
-    private transient Integer id;
+    private Integer id;
     private String name;
     private String text;
     private String pictureURL;

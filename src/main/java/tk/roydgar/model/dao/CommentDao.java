@@ -5,7 +5,9 @@ import tk.roydgar.model.entity.Comment;
 import java.util.List;
 
 public interface CommentDao extends GenericDao<Comment> {
-    List<Comment> findByClientId(int clientId);
 
+    List<Comment> findByClientId(int clientId);
     void create(Comment comment, int clientId);
+    void updateUsefulness(int usefulness, int commendId);
+
 }

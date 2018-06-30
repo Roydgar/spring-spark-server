@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 public class Client {
 
-    private transient Integer id;
+    private Integer id;
     private transient String login;
     private transient String password;
     private String name;
@@ -23,9 +23,5 @@ public class Client {
     private String email;
     private LocalDateTime registrationDate;
     private String address;
-
     private List<WorkTime> workDays;
-    private List<Comment> comments;
-    private List<News> news;
-
 }

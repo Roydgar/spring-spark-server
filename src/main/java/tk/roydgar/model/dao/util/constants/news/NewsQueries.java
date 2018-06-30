@@ -13,5 +13,4 @@ public interface NewsQueries {
     String UPDATE        = bundle.getString("update");
     String DELETE        = bundle.getString("delete");
     String FIND_BY_CLIENT_ID = bundle.getString("findByClientId");
-
 }

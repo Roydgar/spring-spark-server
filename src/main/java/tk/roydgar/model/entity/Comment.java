@@ -8,8 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class Comment {
-    private transient Integer id;
-    private String name;
+
+    private Integer id;
     private String text;
     private Integer mark;
+    private Integer usefulness;
+
 }

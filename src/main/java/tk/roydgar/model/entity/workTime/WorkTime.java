@@ -9,7 +9,7 @@ import lombok.*;
 @Builder
 public class WorkTime {
 
-    private transient Integer id;
+    private Integer id;
     private Day from;
     private Day to;
 
